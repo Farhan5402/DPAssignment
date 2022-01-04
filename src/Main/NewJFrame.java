@@ -10,7 +10,7 @@ import javax.swing.ImageIcon;
 
 /**
  *
- * @author farha
+ * @author farhan
  */
 public class NewJFrame extends javax.swing.JFrame {
 
