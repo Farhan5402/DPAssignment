@@ -1,6 +1,7 @@
-package strategyDP;
+package Strategy;
 
-public interface moveBehaviour {
+public interface MoveBehaviour {
 	
 	void move();
+	
 }

@@ -1,6 +1,6 @@
-package strategyDP;
+package Strategy;
 
-public class policeBehaviour implements LightBehaviour {
+public class PoliceBehaviour implements LightBehaviour {
 
 	@Override
 	public void lightUp() {

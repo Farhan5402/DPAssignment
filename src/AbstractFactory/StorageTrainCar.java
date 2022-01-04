@@ -1,3 +1,4 @@
+package AbstractFactory;
 
 public class StorageTrainCar implements TrainCar {
 
