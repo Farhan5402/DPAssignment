@@ -1,13 +1,11 @@
-package strategyDP;
+package Strategy;
 
-public class taxiBehaviour implements LightBehaviour{
+public class TaxiBehaviour implements LightBehaviour{
 
 	@Override
 	public void lightUp() {
 		// TODO Auto-generated method stub
 		
 	}
-	
-	
 
 }

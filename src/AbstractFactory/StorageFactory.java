@@ -1,3 +1,4 @@
+package AbstractFactory;
 
 public class StorageFactory implements AbstractFeatureFactory{
 

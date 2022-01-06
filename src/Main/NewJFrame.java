@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dpassignment;
+package Main;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
 /**
  *
- * @author farha
+ * @author farhan
  */
 public class NewJFrame extends javax.swing.JFrame {
 

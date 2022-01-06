@@ -1,12 +1,11 @@
-package strategyDP;
+package Strategy;
 
-public class spiderMoveBehaviour implements moveBehaviour{
+public class SpiderMoveBehaviour implements MoveBehaviour{
 
 	@Override
 	public void move() {
 		// TODO Auto-generated method stub
 
 	}
-
 
 }
