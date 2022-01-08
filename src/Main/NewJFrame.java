@@ -5,8 +5,23 @@
  */
 package Main;
 
+import AbstractFactory.AbstractFeatureFactory;
+import AbstractFactory.PassengerFactory;
+import AbstractFactory.StorageFactory;
+import Facade.StageLightsL;
+import Facade.StageLightsR;
+import Facade.StartWorkFacade;
+import Strategy.LightBehaviour;
+import Strategy.MoveBehaviour;
+import Strategy.ambulanceBehaviour;
+import Strategy.policeBehaviour;
+import Strategy.spiderMoveBehaviour;
+import Strategy.taxiBehaviour;
+import Strategy.trackMoveBehaviour;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 
 /**
  *
@@ -15,6 +30,12 @@ import javax.swing.ImageIcon;
 public class NewJFrame extends javax.swing.JFrame {
 
     static NewJFrame frame;
+    
+    public static Vehicle vehicle;
+    public static StageLightsL stageLightL;
+    public static StageLightsR stageLightR;
+    public static StartWorkFacade startWorkFacade;
+    
     
     /**
      * Creates new form NewJFrame
@@ -27,17 +48,30 @@ public class NewJFrame extends javax.swing.JFrame {
     public void setBackground(){
         ImageIcon icon = new ImageIcon(getClass().getResource("/Images/BGGarage.jpg"));
         Image img = icon.getImage();
-        Image scaledimg = img.getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_SMOOTH);
+        Image scaledimg = img.getScaledInstance(Background.getWidth(), Background.getHeight(), Image.SCALE_SMOOTH);
         
         ImageIcon scaledicon = new ImageIcon(scaledimg);
-        jLabel1.setIcon(scaledicon);
+        Background.setIcon(scaledicon);
         
-        ImageIcon iconcar = new ImageIcon(getClass().getResource("/Images/Car.png"));
+        
+        //passsenger initalise
+        //ImageIcon iconcar = new ImageIcon(getClass().getResource("/Images/PassengerChassis.png"));
+        ImageIcon iconcar = new ImageIcon(getClass().getResource("/Images/StorageChassis.png"));
         Image imgcar = iconcar.getImage();
-        Image scaledimgcar = imgcar.getScaledInstance(jLabel2.getWidth(), jLabel2.getHeight(), Image.SCALE_SMOOTH);
+        Image scaledimgcar = imgcar.getScaledInstance(Chassis.getWidth(), Chassis.getHeight(), Image.SCALE_SMOOTH);
         
         ImageIcon scalediconcar = new ImageIcon(scaledimgcar);
-        jLabel2.setIcon(scalediconcar);
+        Chassis.setIcon(scalediconcar);
+        
+        
+        //passsenger initalise
+        //ImageIcon iconcar2 = new ImageIcon(getClass().getResource("/Images/PassengerTrainCar.png"));
+        ImageIcon iconcar2 = new ImageIcon(getClass().getResource("/Images/StorageTrainCar.png"));
+        Image imgcar2 = iconcar2.getImage();
+        Image scaledimgcar2 = imgcar2.getScaledInstance(TrainCar.getWidth(), TrainCar.getHeight(), Image.SCALE_SMOOTH);
+        
+        ImageIcon scalediconcar2 = new ImageIcon(scaledimgcar2);
+        TrainCar.setIcon(scalediconcar2);
     }
 
     /**
@@ -50,15 +84,27 @@ public class NewJFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        StageLightR = new javax.swing.JLabel();
+        Toolbox = new javax.swing.JLabel();
+        StageLightL = new javax.swing.JLabel();
+        Lights = new javax.swing.JLabel();
+        Wheel1 = new javax.swing.JLabel();
+        Wheel2 = new javax.swing.JLabel();
+        Chassis = new javax.swing.JLabel();
+        TrainCar = new javax.swing.JLabel();
+        RayR = new javax.swing.JLabel();
+        RayL = new javax.swing.JLabel();
+        Background = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        PassengerBtn = new javax.swing.JButton();
+        StorageBtn = new javax.swing.JButton();
+        SpiderBtn = new javax.swing.JButton();
+        TrackBtn = new javax.swing.JButton();
+        PoliceBtn = new javax.swing.JButton();
+        AmbulanceBtn = new javax.swing.JButton();
+        StartWork = new javax.swing.JButton();
+        TaxiBtn1 = new javax.swing.JButton();
+        StopWork = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(800, 700));
@@ -67,15 +113,35 @@ public class NewJFrame extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
         jPanel1.setLayout(null);
+        jPanel1.add(StageLightR);
+        StageLightR.setBounds(620, 0, 130, 130);
+        jPanel1.add(Toolbox);
+        Toolbox.setBounds(30, 320, 110, 70);
+        jPanel1.add(StageLightL);
+        StageLightL.setBounds(90, 0, 130, 130);
+        jPanel1.add(Lights);
+        Lights.setBounds(535, 205, 90, 20);
+        jPanel1.add(Wheel1);
+        Wheel1.setBounds(470, 320, 140, 140);
+        jPanel1.add(Wheel2);
+        Wheel2.setBounds(210, 320, 140, 140);
+        jPanel1.add(Chassis);
+        Chassis.setBounds(410, 200, 260, 210);
+        Chassis.getAccessibleContext().setAccessibleName("Chassis");
 
-        jLabel2.setText("jLabel2");
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(100, 200, 600, 250);
+        jPanel1.add(TrainCar);
+        TrainCar.setBounds(190, 200, 330, 210);
+        TrainCar.getAccessibleContext().setAccessibleName("TrainCar");
 
-        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/BGGarage.jpg"))); // NOI18N
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(0, 0, 800, 530);
+        jPanel1.add(RayR);
+        RayR.setBounds(60, 0, 670, 600);
+        jPanel1.add(RayL);
+        RayL.setBounds(120, 0, 670, 600);
+
+        Background.setBackground(new java.awt.Color(0, 0, 0));
+        Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/BGGarage.jpg"))); // NOI18N
+        jPanel1.add(Background);
+        Background.setBounds(0, 0, 800, 530);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 800, 530);
@@ -83,45 +149,182 @@ public class NewJFrame extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(153, 153, 153));
         jPanel2.setLayout(null);
 
-        jButton1.setText("Feature1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        PassengerBtn.setText("Passenger");
+        PassengerBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                PassengerBtnActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1);
-        jButton1.setBounds(116, 25, 80, 25);
+        jPanel2.add(PassengerBtn);
+        PassengerBtn.setBounds(60, 10, 90, 25);
 
-        jButton2.setText("Feature2");
-        jPanel2.add(jButton2);
-        jButton2.setBounds(210, 25, 79, 25);
+        StorageBtn.setText("Storage");
+        StorageBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                StorageBtnActionPerformed(evt);
+            }
+        });
+        jPanel2.add(StorageBtn);
+        StorageBtn.setBounds(60, 50, 90, 25);
 
-        jButton3.setText("Feature3");
-        jPanel2.add(jButton3);
-        jButton3.setBounds(310, 25, 77, 25);
+        SpiderBtn.setText("Spider");
+        SpiderBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SpiderBtnActionPerformed(evt);
+            }
+        });
+        jPanel2.add(SpiderBtn);
+        SpiderBtn.setBounds(200, 10, 77, 25);
 
-        jButton4.setText("Feature4");
-        jPanel2.add(jButton4);
-        jButton4.setBounds(420, 25, 77, 25);
+        TrackBtn.setText("Track");
+        TrackBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TrackBtnActionPerformed(evt);
+            }
+        });
+        jPanel2.add(TrackBtn);
+        TrackBtn.setBounds(200, 50, 70, 25);
 
-        jButton5.setText("Feature5");
-        jPanel2.add(jButton5);
-        jButton5.setBounds(520, 25, 77, 25);
+        PoliceBtn.setText("Police");
+        PoliceBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PoliceBtnActionPerformed(evt);
+            }
+        });
+        jPanel2.add(PoliceBtn);
+        PoliceBtn.setBounds(330, 10, 80, 25);
 
-        jButton6.setText("AllFeatures");
-        jPanel2.add(jButton6);
-        jButton6.setBounds(610, 25, 87, 25);
+        AmbulanceBtn.setText("Ambulance");
+        AmbulanceBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AmbulanceBtnActionPerformed(evt);
+            }
+        });
+        jPanel2.add(AmbulanceBtn);
+        AmbulanceBtn.setBounds(430, 10, 80, 25);
+
+        StartWork.setText("Start Work");
+        StartWork.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                StartWorkActionPerformed(evt);
+            }
+        });
+        jPanel2.add(StartWork);
+        StartWork.setBounds(660, 10, 110, 25);
+
+        TaxiBtn1.setText("Taxi");
+        TaxiBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TaxiBtn1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(TaxiBtn1);
+        TaxiBtn1.setBounds(380, 50, 80, 25);
+
+        StopWork.setText("Stop Work");
+        StopWork.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                StopWorkActionPerformed(evt);
+            }
+        });
+        jPanel2.add(StopWork);
+        StopWork.setBounds(660, 50, 110, 25);
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(0, 530, 800, 70);
+        jPanel2.setBounds(0, 530, 800, 90);
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void PassengerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PassengerBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        /*
+        ImageIcon iconcar = new ImageIcon(getClass().getResource("/Images/PassengerChassis.png"));
+        Image imgcar = iconcar.getImage();
+        Image scaledimgcar = imgcar.getScaledInstance(Chassis.getWidth(), Chassis.getHeight(), Image.SCALE_SMOOTH);
+        
+        ImageIcon scalediconcar = new ImageIcon(scaledimgcar);
+        Chassis.setIcon(scalediconcar);
+        
+        ImageIcon iconcar2 = new ImageIcon(getClass().getResource("/Images/PassengerTrainCar.png"));
+        Image imgcar2 = iconcar2.getImage();
+        Image scaledimgcar2 = imgcar2.getScaledInstance(TrainCar.getWidth(), TrainCar.getHeight(), Image.SCALE_SMOOTH);
+        
+        ImageIcon scalediconcar2 = new ImageIcon(scaledimgcar2);
+        TrainCar.setIcon(scalediconcar2);
+        */
+        
+        AbstractFeatureFactory pfac = new PassengerFactory(frame);
+        vehicle.chassis = pfac.createChassis();
+        vehicle.trainCar = pfac.createTrainCar();
+        
+        
+    }//GEN-LAST:event_PassengerBtnActionPerformed
+
+    private void StorageBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StorageBtnActionPerformed
+        // TODO add your handling code here:
+        /*
+        ImageIcon iconcar = new ImageIcon(getClass().getResource("/Images/StorageChassis.png"));
+        Image imgcar = iconcar.getImage();
+        Image scaledimgcar = imgcar.getScaledInstance(Chassis.getWidth(), Chassis.getHeight(), Image.SCALE_SMOOTH);
+        
+        ImageIcon scalediconcar = new ImageIcon(scaledimgcar);
+        Chassis.setIcon(scalediconcar);
+        
+        ImageIcon iconcar2 = new ImageIcon(getClass().getResource("/Images/StorageTrainCar.png"));
+        Image imgcar2 = iconcar2.getImage();
+        Image scaledimgcar2 = imgcar2.getScaledInstance(TrainCar.getWidth(), TrainCar.getHeight(), Image.SCALE_SMOOTH);
+        
+        ImageIcon scalediconcar2 = new ImageIcon(scaledimgcar2);
+        TrainCar.setIcon(scalediconcar2);
+        */
+        
+        AbstractFeatureFactory sfac = new StorageFactory(frame);
+        vehicle.chassis = sfac.createChassis();
+        vehicle.trainCar = sfac.createTrainCar();
+    }//GEN-LAST:event_StorageBtnActionPerformed
+
+    private void SpiderBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SpiderBtnActionPerformed
+        // TODO add your handling code here:
+        vehicle.setMoveBehaviour(new spiderMoveBehaviour());
+        vehicle.performMoveBehaviour(frame);
+        
+    }//GEN-LAST:event_SpiderBtnActionPerformed
+
+    private void TrackBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TrackBtnActionPerformed
+        // TODO add your handling code here:
+        vehicle.moveBehaviour = new trackMoveBehaviour();
+        vehicle.performMoveBehaviour(frame);
+    }//GEN-LAST:event_TrackBtnActionPerformed
+
+    private void PoliceBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PoliceBtnActionPerformed
+        // TODO add your handling code here:
+        vehicle.setLightBehaviour(new policeBehaviour());
+        vehicle.performLightBehaviour(frame);
+    }//GEN-LAST:event_PoliceBtnActionPerformed
+
+    private void AmbulanceBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AmbulanceBtnActionPerformed
+        // TODO add your handling code here:
+        vehicle.setLightBehaviour(new ambulanceBehaviour());
+        vehicle.performLightBehaviour(frame);
+    }//GEN-LAST:event_AmbulanceBtnActionPerformed
+
+    private void StartWorkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StartWorkActionPerformed
+        // TODO add your handling code here:
+        startWorkFacade.TurnOn(frame);
+    }//GEN-LAST:event_StartWorkActionPerformed
+
+    private void TaxiBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TaxiBtn1ActionPerformed
+        // TODO add your handling code here:
+        vehicle.setLightBehaviour(new taxiBehaviour());
+        vehicle.performLightBehaviour(frame);
+    }//GEN-LAST:event_TaxiBtn1ActionPerformed
+
+    private void StopWorkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StopWorkActionPerformed
+        // TODO add your handling code here:
+        startWorkFacade.TurnOff(frame);
+    }//GEN-LAST:event_StopWorkActionPerformed
 
     /**
      * @param args the command line arguments
@@ -155,19 +358,157 @@ public class NewJFrame extends javax.swing.JFrame {
             public void run() {
                 frame = new NewJFrame();
                 frame.setVisible(true);
+                vehicle = new Vehicle() {};
+                startWorkFacade = new StartWorkFacade(frame);
+                
             }
         });
     }
 
+
+    public JLabel getChassis() {
+        return Chassis;
+    }
+
+    public void setChassis(JLabel Chassis) {
+        this.Chassis = Chassis;
+    }
+
+    public JButton getPassenger() {
+        return PassengerBtn;
+    }
+
+    public void setPassenger(JButton Passenger) {
+        this.PassengerBtn = Passenger;
+    }
+
+    public JButton getStorage() {
+        return StorageBtn;
+    }
+
+    public void setStorage(JButton Storage) {
+        this.StorageBtn = Storage;
+    }
+
+    public JLabel getTrainCar() {
+        return TrainCar;
+    }
+
+    public void setTrainCar(JLabel TrainCar) {
+        this.TrainCar = TrainCar;
+    }
+
+    public JButton getSpider() {
+        return SpiderBtn;
+    }
+
+    public void setSpider(JButton Spider) {
+        this.SpiderBtn = Spider;
+    }
+
+    public JButton getTrack() {
+        return TrackBtn;
+    }
+
+    public void setTrack(JButton Track) {
+        this.TrackBtn = Track;
+    }
+
+    public JLabel getWheel1() {
+        return Wheel1;
+    }
+
+    public void setWheel1(JLabel Wheel1) {
+        this.Wheel1 = Wheel1;
+    }
+
+    public JLabel getWheel2() {
+        return Wheel2;
+    }
+
+    public void setWheel2(JLabel Wheel2) {
+        this.Wheel2 = Wheel2;
+    }
+
+    public JLabel getLights() {
+        return Lights;
+    }
+
+    public void setLights(JLabel Lights) {
+        this.Lights = Lights;
+    }
+
+    public JLabel getStageLightL() {
+        return StageLightL;
+    }
+
+    public void setStageLightL(JLabel StageLightL) {
+        this.StageLightL = StageLightL;
+    }
+
+    public JLabel getStageLightR() {
+        return StageLightR;
+    }
+
+    public void setStageLightR(JLabel StageLightR) {
+        this.StageLightR = StageLightR;
+    }
+
+    public JLabel getRayL() {
+        return RayL;
+    }
+
+    public void setRayL(JLabel RayL) {
+        this.RayL = RayL;
+    }
+
+    public JLabel getRayR() {
+        return RayR;
+    }
+
+    public void setRayR(JLabel RayR) {
+        this.RayR = RayR;
+    }
+
+    public JLabel getToolbox() {
+        return Toolbox;
+    }
+
+    public void setToolbox(JLabel Toolbox) {
+        this.Toolbox = Toolbox;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton AmbulanceBtn;
+    private javax.swing.JLabel Background;
+    private javax.swing.JLabel Chassis;
+    private javax.swing.JLabel Lights;
+    private javax.swing.JButton PassengerBtn;
+    private javax.swing.JButton PoliceBtn;
+    private javax.swing.JLabel RayL;
+    private javax.swing.JLabel RayR;
+    private javax.swing.JButton SpiderBtn;
+    private javax.swing.JLabel StageLightL;
+    private javax.swing.JLabel StageLightR;
+    private javax.swing.JButton StartWork;
+    private javax.swing.JButton StopWork;
+    private javax.swing.JButton StorageBtn;
+    private javax.swing.JButton TaxiBtn1;
+    private javax.swing.JLabel Toolbox;
+    private javax.swing.JButton TrackBtn;
+    private javax.swing.JLabel TrainCar;
+    private javax.swing.JLabel Wheel1;
+    private javax.swing.JLabel Wheel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
