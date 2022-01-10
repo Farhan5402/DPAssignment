@@ -52,26 +52,6 @@ public class NewJFrame extends javax.swing.JFrame {
         
         ImageIcon scaledicon = new ImageIcon(scaledimg);
         Background.setIcon(scaledicon);
-        
-        
-        //passsenger initalise
-        //ImageIcon iconcar = new ImageIcon(getClass().getResource("/Images/PassengerChassis.png"));
-        ImageIcon iconcar = new ImageIcon(getClass().getResource("/Images/StorageChassis.png"));
-        Image imgcar = iconcar.getImage();
-        Image scaledimgcar = imgcar.getScaledInstance(Chassis.getWidth(), Chassis.getHeight(), Image.SCALE_SMOOTH);
-        
-        ImageIcon scalediconcar = new ImageIcon(scaledimgcar);
-        Chassis.setIcon(scalediconcar);
-        
-        
-        //passsenger initalise
-        //ImageIcon iconcar2 = new ImageIcon(getClass().getResource("/Images/PassengerTrainCar.png"));
-        ImageIcon iconcar2 = new ImageIcon(getClass().getResource("/Images/StorageTrainCar.png"));
-        Image imgcar2 = iconcar2.getImage();
-        Image scaledimgcar2 = imgcar2.getScaledInstance(TrainCar.getWidth(), TrainCar.getHeight(), Image.SCALE_SMOOTH);
-        
-        ImageIcon scalediconcar2 = new ImageIcon(scaledimgcar2);
-        TrainCar.setIcon(scalediconcar2);
     }
 
     /**
@@ -239,22 +219,6 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void PassengerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PassengerBtnActionPerformed
         // TODO add your handling code here:
-        /*
-        ImageIcon iconcar = new ImageIcon(getClass().getResource("/Images/PassengerChassis.png"));
-        Image imgcar = iconcar.getImage();
-        Image scaledimgcar = imgcar.getScaledInstance(Chassis.getWidth(), Chassis.getHeight(), Image.SCALE_SMOOTH);
-        
-        ImageIcon scalediconcar = new ImageIcon(scaledimgcar);
-        Chassis.setIcon(scalediconcar);
-        
-        ImageIcon iconcar2 = new ImageIcon(getClass().getResource("/Images/PassengerTrainCar.png"));
-        Image imgcar2 = iconcar2.getImage();
-        Image scaledimgcar2 = imgcar2.getScaledInstance(TrainCar.getWidth(), TrainCar.getHeight(), Image.SCALE_SMOOTH);
-        
-        ImageIcon scalediconcar2 = new ImageIcon(scaledimgcar2);
-        TrainCar.setIcon(scalediconcar2);
-        */
-        
         AbstractFeatureFactory pfac = new PassengerFactory(frame);
         vehicle.chassis = pfac.createChassis();
         vehicle.trainCar = pfac.createTrainCar();
@@ -264,22 +228,6 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void StorageBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StorageBtnActionPerformed
         // TODO add your handling code here:
-        /*
-        ImageIcon iconcar = new ImageIcon(getClass().getResource("/Images/StorageChassis.png"));
-        Image imgcar = iconcar.getImage();
-        Image scaledimgcar = imgcar.getScaledInstance(Chassis.getWidth(), Chassis.getHeight(), Image.SCALE_SMOOTH);
-        
-        ImageIcon scalediconcar = new ImageIcon(scaledimgcar);
-        Chassis.setIcon(scalediconcar);
-        
-        ImageIcon iconcar2 = new ImageIcon(getClass().getResource("/Images/StorageTrainCar.png"));
-        Image imgcar2 = iconcar2.getImage();
-        Image scaledimgcar2 = imgcar2.getScaledInstance(TrainCar.getWidth(), TrainCar.getHeight(), Image.SCALE_SMOOTH);
-        
-        ImageIcon scalediconcar2 = new ImageIcon(scaledimgcar2);
-        TrainCar.setIcon(scalediconcar2);
-        */
-        
         AbstractFeatureFactory sfac = new StorageFactory(frame);
         vehicle.chassis = sfac.createChassis();
         vehicle.trainCar = sfac.createTrainCar();
@@ -477,16 +425,6 @@ public class NewJFrame extends javax.swing.JFrame {
     public void setToolbox(JLabel Toolbox) {
         this.Toolbox = Toolbox;
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AmbulanceBtn;
