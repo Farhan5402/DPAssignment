@@ -4,8 +4,7 @@ import Main.NewJFrame;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
-public class spiderMoveBehaviour implements MoveBehaviour{
-
+public class SpiderMoveBehaviour implements MoveBehaviour{
 
     @Override
     public void move(NewJFrame frame) {

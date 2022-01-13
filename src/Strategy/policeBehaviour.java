@@ -4,11 +4,10 @@ import Main.NewJFrame;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
-public class policeBehaviour implements LightBehaviour {
+public class PoliceBehaviour implements LightBehaviour {
 
 	@Override
 	public void lightUp(NewJFrame frame) {
-            // TODO Auto-generated method stub
             ImageIcon iconcar = new ImageIcon(getClass().getResource("/Images/Police.png"));
             Image imgcar = iconcar.getImage();
             

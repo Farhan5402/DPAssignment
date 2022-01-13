@@ -4,11 +4,10 @@ import Main.NewJFrame;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
-public class taxiBehaviour implements LightBehaviour{
+public class TaxiBehaviour implements LightBehaviour{
 
 	@Override
 	public void lightUp(NewJFrame frame) {
-		// TODO Auto-generated method stub
             ImageIcon iconcar = new ImageIcon(getClass().getResource("/Images/Taxi.png"));
             Image imgcar = iconcar.getImage();
             

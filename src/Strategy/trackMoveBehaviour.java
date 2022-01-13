@@ -4,8 +4,7 @@ import Main.NewJFrame;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
-public class trackMoveBehaviour implements MoveBehaviour {
-
+public class TrackMoveBehaviour implements MoveBehaviour {
 
     @Override
     public void move(NewJFrame frame) {

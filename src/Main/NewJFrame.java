@@ -228,26 +228,26 @@ public class NewJFrame extends javax.swing.JFrame {
     }
 
     private void SpiderBtnActionPerformed(java.awt.event.ActionEvent evt) {
-        performCommand(new AddMoveCommand(vehicle, new spiderMoveBehaviour()));
+        performCommand(new AddMoveCommand(vehicle, new SpiderMoveBehaviour()));
 
         // TODO: Needs to be moved into command itself. So that undo works
         vehicle.performMoveBehaviour(frame);
     }
 
     private void TrackBtnActionPerformed(java.awt.event.ActionEvent evt) {
-        performCommand(new AddMoveCommand(vehicle, new trackMoveBehaviour()));
+        performCommand(new AddMoveCommand(vehicle, new TrackMoveBehaviour()));
     }
 
     private void PoliceBtnActionPerformed(java.awt.event.ActionEvent evt) {
-        performCommand(new AddLightCommand(vehicle, new policeBehaviour()));
+        performCommand(new AddLightCommand(vehicle, new PoliceBehaviour()));
     }
 
     private void AmbulanceBtnActionPerformed(java.awt.event.ActionEvent evt) {
-        performCommand(new AddLightCommand(vehicle, new ambulanceBehaviour()));
+        performCommand(new AddLightCommand(vehicle, new AmbulanceBehaviour()));
     }
 
     private void TaxiBtn1ActionPerformed(java.awt.event.ActionEvent evt) {
-        performCommand(new AddLightCommand(vehicle, new taxiBehaviour()));
+        performCommand(new AddLightCommand(vehicle, new TaxiBehaviour()));
     }
 
     private void StartWorkActionPerformed(java.awt.event.ActionEvent evt) {
