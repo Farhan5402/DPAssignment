@@ -1,13 +1,13 @@
 package AbstractFactory;
 
-import Main.NewJFrame;
+import Main.MainJFrame;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
 public class StorageChassis implements Chassis{
 
 	@Override
-	public void place(NewJFrame frame) {
+	public void place(MainJFrame frame) {
 
         Image img = new ImageIcon(getClass().getResource("/Images/StorageChassis.png")).getImage();
         Image scaledImg = img.getScaledInstance(frame.getChassis().getWidth(), frame.getChassis().getHeight(),

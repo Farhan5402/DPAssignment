@@ -1,12 +1,12 @@
 package Facade;
 
-import Main.NewJFrame;
+import Main.MainJFrame;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
 public class StageLightsR {
 
-    public StageLightsR(NewJFrame frame) {
+    public StageLightsR(MainJFrame frame) {
         Image img = new ImageIcon(getClass().getResource("/Images/LightR.png")).getImage();
         Image scaledImg = img.getScaledInstance(frame.getStageLightR().getWidth(),
                 frame.getStageLightR().getHeight(), Image.SCALE_SMOOTH);
@@ -14,7 +14,7 @@ public class StageLightsR {
         frame.getStageLightR().setIcon(new ImageIcon(scaledImg));
     }
 
-    public void lightUp(NewJFrame frame) {
+    public void lightUp(MainJFrame frame) {
         Image img = new ImageIcon(getClass().getResource("/Images/RayR.png")).getImage();
         Image scaledImg = img.getScaledInstance(frame.getRayR().getWidth(), frame.getRayR().getHeight(),
                 Image.SCALE_SMOOTH);
@@ -22,7 +22,7 @@ public class StageLightsR {
         frame.getRayR().setIcon(new ImageIcon(scaledImg));
     }
 
-    public void lightDown(NewJFrame frame) {
+    public void lightDown(MainJFrame frame) {
         frame.getRayR().setIcon(null);
     }
 

@@ -1,9 +1,9 @@
 package Strategy;
 
-import Main.NewJFrame;
+import Main.MainJFrame;
 
 public interface MoveBehaviour {
 	
-	void move(NewJFrame frame);
+	void move(MainJFrame frame);
 	
 }

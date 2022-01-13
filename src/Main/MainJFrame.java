@@ -12,45 +12,27 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
-public class NewJFrame extends javax.swing.JFrame {
+public class MainJFrame extends javax.swing.JFrame {
 
-    static NewJFrame frame;
+    static MainJFrame frame;
 
     private static Vehicle vehicle;
-    private static StageLightsL stageLightL;
-    private static StageLightsR stageLightR;
     private static StartWorkFacade startWorkFacade;
 
     private ArrayList<Command> _commandHistory = new ArrayList<>();
 
     // #region Initialization
 
-    public NewJFrame() {
+    public MainJFrame() {
         initComponents();
         setBackground();
     }
 
     public void setBackground() {
-        ImageIcon icon = new ImageIcon(getClass().getResource("/Images/BGGarage.jpg"));
-        Image img = icon.getImage();
-        Image scaledimg = img.getScaledInstance(Background.getWidth(), Background.getHeight(), Image.SCALE_SMOOTH);
+        Image img = new ImageIcon(getClass().getResource("/Images/BGGarage.jpg")).getImage();
+        Image scaledImg = img.getScaledInstance(Background.getWidth(), Background.getHeight(), Image.SCALE_SMOOTH);
 
-        ImageIcon scaledicon = new ImageIcon(scaledimg);
-        Background.setIcon(scaledicon);
-
-        ImageIcon iconcar = new ImageIcon(getClass().getResource("/Images/StorageChassis.png"));
-        Image imgcar = iconcar.getImage();
-        Image scaledimgcar = imgcar.getScaledInstance(Chassis.getWidth(), Chassis.getHeight(), Image.SCALE_SMOOTH);
-
-        ImageIcon scalediconcar = new ImageIcon(scaledimgcar);
-        Chassis.setIcon(scalediconcar);
-
-        ImageIcon iconcar2 = new ImageIcon(getClass().getResource("/Images/StorageTrainCar.png"));
-        Image imgcar2 = iconcar2.getImage();
-        Image scaledimgcar2 = imgcar2.getScaledInstance(TrainCar.getWidth(), TrainCar.getHeight(), Image.SCALE_SMOOTH);
-
-        ImageIcon scalediconcar2 = new ImageIcon(scaledimgcar2);
-        TrainCar.setIcon(scalediconcar2);
+        Background.setIcon(new ImageIcon(scaledImg));
     }
 
     private void initComponents() {
@@ -218,8 +200,12 @@ public class NewJFrame extends javax.swing.JFrame {
         _commandHistory.add(cmd);
     }
 
-    private void undoPreviousCommanad() {
+    // TODO: Add "Ctrl + Z" / Undo button which calls this function
+    private void undoPreviousCommand() {
+        if (_commandHistory.size() == 0)
+            return;
 
+        _commandHistory.remove(_commandHistory.size() - 1).undo();
     }
 
     private void PassengerBtnActionPerformed(java.awt.event.ActionEvent evt) {
@@ -272,21 +258,27 @@ public class NewJFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null,
+                    ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null,
+                    ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null,
+                    ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null,
+                    ex);
         }
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                frame = new NewJFrame();
+                frame = new MainJFrame();
                 frame.setVisible(true);
+
                 vehicle = new Vehicle();
-                startWorkFacade = new StartWorkFacade(new StageLightsL(frame), new StageLightsR(frame), new Toolbox(frame));
+                startWorkFacade = new StartWorkFacade(new StageLightsL(frame), new StageLightsR(frame),
+                        new Toolbox(frame));
             }
         });
     }

@@ -3,7 +3,7 @@ package Command;
 import AbstractFactory.AbstractFeatureFactory;
 import AbstractFactory.Chassis;
 import AbstractFactory.TrainCar;
-import Main.NewJFrame;
+import Main.MainJFrame;
 import Main.Vehicle;
 
 public class AddFeatureCommand extends Command {
@@ -14,7 +14,7 @@ public class AddFeatureCommand extends Command {
     private TrainCar trainCar;
     private TrainCar prevTrainCar;
 
-    public AddFeatureCommand(Vehicle vehicle, NewJFrame frame, AbstractFeatureFactory factory) {
+    public AddFeatureCommand(Vehicle vehicle, MainJFrame frame, AbstractFeatureFactory factory) {
         super(vehicle, frame);
 
         chassis = factory.createChassis();
@@ -37,6 +37,9 @@ public class AddFeatureCommand extends Command {
     public void undo() {
         vehicle.chassis = prevChassis;
         vehicle.trainCar = prevTrainCar;
+
+        vehicle.chassis.place(frame);
+        vehicle.trainCar.place(frame);
     }
 
 }

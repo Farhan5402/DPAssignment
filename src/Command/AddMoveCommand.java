@@ -1,6 +1,6 @@
 package Command;
 
-import Main.NewJFrame;
+import Main.MainJFrame;
 import Main.Vehicle;
 import Strategy.MoveBehaviour;
 
@@ -9,7 +9,7 @@ public class AddMoveCommand extends Command {
     private MoveBehaviour moveBehaviour;
     private MoveBehaviour prevMoveBehaviour;
 
-    public AddMoveCommand(Vehicle vehicle, NewJFrame frame, MoveBehaviour moveBehaviour) {
+    public AddMoveCommand(Vehicle vehicle, MainJFrame frame, MoveBehaviour moveBehaviour) {
         super(vehicle, frame);
 
         this.moveBehaviour = moveBehaviour;

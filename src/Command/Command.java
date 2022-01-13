@@ -1,6 +1,6 @@
 package Command;
 
-import Main.NewJFrame;
+import Main.MainJFrame;
 import Main.Vehicle;
 
 public abstract class Command {
@@ -8,9 +8,9 @@ public abstract class Command {
     protected Vehicle vehicle;
 
     // Needed to get window labels and images
-    protected NewJFrame frame;
+    protected MainJFrame frame;
 
-    public Command(Vehicle vehicle, NewJFrame frame) {
+    public Command(Vehicle vehicle, MainJFrame frame) {
         this.vehicle = vehicle;
         this.frame = frame;
     }

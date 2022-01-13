@@ -1,13 +1,13 @@
 package Strategy;
 
-import Main.NewJFrame;
+import Main.MainJFrame;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
 public class SpiderMoveBehaviour implements MoveBehaviour{
 
     @Override
-    public void move(NewJFrame frame) {
+    public void move(MainJFrame frame) {
         Image img = new ImageIcon(getClass().getResource("/Images/Spider.png")).getImage();
 
         Image scaledImg1 = img.getScaledInstance(frame.getWheel1().getWidth(), frame.getWheel1().getHeight(),

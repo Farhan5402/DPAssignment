@@ -1,9 +1,9 @@
 package AbstractFactory;
 
-import Main.NewJFrame;
+import Main.MainJFrame;
 
 public interface Chassis {
 
-	abstract public void place(NewJFrame frame);
+	abstract public void place(MainJFrame frame);
 	
 }

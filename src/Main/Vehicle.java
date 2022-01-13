@@ -17,11 +17,11 @@ public class Vehicle {
 		this.lightBehaviour = lb;
 	}
 
-	public void performMoveBehaviour(NewJFrame frame) {
+	public void performMoveBehaviour(MainJFrame frame) {
 		this.moveBehaviour.move(frame);
 	}
 
-	public void performLightBehaviour(NewJFrame frame) {
+	public void performLightBehaviour(MainJFrame frame) {
 		this.lightBehaviour.lightUp(frame);
 	}
 

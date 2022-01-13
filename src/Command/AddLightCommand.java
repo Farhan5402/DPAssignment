@@ -1,6 +1,6 @@
 package Command;
 
-import Main.NewJFrame;
+import Main.MainJFrame;
 import Main.Vehicle;
 import Strategy.LightBehaviour;
 
@@ -9,7 +9,7 @@ public class AddLightCommand extends Command {
     private LightBehaviour lightBehaviour;
     private LightBehaviour prevLightBehaviour;
 
-    public AddLightCommand(Vehicle vehicle, NewJFrame frame, LightBehaviour lightBehaviour) {
+    public AddLightCommand(Vehicle vehicle, MainJFrame frame, LightBehaviour lightBehaviour) {
         super(vehicle, frame);
 
         this.lightBehaviour = lightBehaviour;
@@ -26,6 +26,7 @@ public class AddLightCommand extends Command {
     @Override
     public void undo() {
         vehicle.lightBehaviour = prevLightBehaviour;
+        vehicle.lightBehaviour.lightUp(frame);
     }
 
 }

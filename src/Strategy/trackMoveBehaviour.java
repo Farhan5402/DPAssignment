@@ -1,6 +1,6 @@
 package Strategy;
 
-import Main.NewJFrame;
+import Main.MainJFrame;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
@@ -8,7 +8,7 @@ public class TrackMoveBehaviour implements MoveBehaviour {
 
     // TODO: Move over to other behaviours
     @Override
-    public void move(NewJFrame frame) {
+    public void move(MainJFrame frame) {
         Image img = new ImageIcon(getClass().getResource("/Images/Track.png")).getImage();
 
         Image scaledImg1 = img.getScaledInstance(frame.getWheel1().getWidth(), frame.getWheel1().getHeight(),

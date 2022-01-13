@@ -1,6 +1,6 @@
 package Facade;
 
-import Main.NewJFrame;
+import Main.MainJFrame;
 
 public class StartWorkFacade {
     
@@ -14,13 +14,13 @@ public class StartWorkFacade {
         this.tb = tb;
     }
     
-    public void TurnOn(NewJFrame frame){
+    public void TurnOn(MainJFrame frame){
         sll.lightUp(frame);
         slr.lightUp(frame);
         tb.open(frame);
     }
     
-    public void TurnOff(NewJFrame frame){
+    public void TurnOff(MainJFrame frame){
         sll.lightDown(frame);
         slr.lightDown(frame);
         tb.close(frame);
