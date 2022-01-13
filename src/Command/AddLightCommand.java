@@ -3,12 +3,12 @@ package Command;
 import Main.Vehicle;
 import Strategy.LightBehaviour;
 
-public class AddLightBehaviour extends Command {
+public class AddLightCommand extends Command {
 
     private LightBehaviour lightBehaviour;
     private LightBehaviour prevLightBehaviour;
 
-    public AddLightBehaviour(Vehicle vehicle, LightBehaviour lightBehaviour) {
+    public AddLightCommand(Vehicle vehicle, LightBehaviour lightBehaviour) {
         super(vehicle);
 
         this.lightBehaviour = lightBehaviour;
