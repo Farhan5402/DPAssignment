@@ -6,7 +6,6 @@ import javax.swing.ImageIcon;
 
 public class TrackMoveBehaviour implements MoveBehaviour {
 
-    // TODO: Move over to other behaviours
     @Override
     public void move(MainJFrame frame) {
         Image img = new ImageIcon(getClass().getResource("/Images/Track.png")).getImage();
