@@ -4,7 +4,7 @@
  */
 package Facade;
 
-import Main.NewJFrame;
+import Main.MainJFrame;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
@@ -14,7 +14,7 @@ import javax.swing.ImageIcon;
  */
 public class Toolbox {
     
-    public Toolbox(NewJFrame frame){
+    public Toolbox(MainJFrame frame){
         ImageIcon iconcar = new ImageIcon(getClass().getResource("/Images/ToolboxClosed.png"));
         Image imgcar = iconcar.getImage();
         Image scaledimgcar = imgcar.getScaledInstance(frame.getToolbox().getWidth(), frame.getToolbox().getHeight(), Image.SCALE_SMOOTH);
@@ -22,7 +22,7 @@ public class Toolbox {
         frame.getToolbox().setIcon(scalediconcar);
     }
     
-    public void open(NewJFrame frame){
+    public void open(MainJFrame frame){
         ImageIcon iconcar = new ImageIcon(getClass().getResource("/Images/ToolboxOpened.png"));
         Image imgcar = iconcar.getImage();
         Image scaledimgcar = imgcar.getScaledInstance(frame.getToolbox().getWidth(), frame.getToolbox().getHeight(), Image.SCALE_SMOOTH);
@@ -30,7 +30,7 @@ public class Toolbox {
         frame.getToolbox().setIcon(scalediconcar);
     }
     
-    public void close(NewJFrame frame){
+    public void close(MainJFrame frame){
         ImageIcon iconcar = new ImageIcon(getClass().getResource("/Images/ToolboxClosed.png"));
         Image imgcar = iconcar.getImage();
         Image scaledimgcar = imgcar.getScaledInstance(frame.getToolbox().getWidth(), frame.getToolbox().getHeight(), Image.SCALE_SMOOTH);

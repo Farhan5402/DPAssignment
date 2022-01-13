@@ -1,9 +1,9 @@
 package Strategy;
 
-import Main.NewJFrame;
+import Main.MainJFrame;
 
 public interface LightBehaviour {
 	
-	void lightUp(NewJFrame frame);
+	void lightUp(MainJFrame frame);
 
 }

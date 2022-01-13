@@ -1,24 +1,18 @@
 package AbstractFactory;
 
-import Main.NewJFrame;
+import Main.MainJFrame;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
 public class StorageTrainCar implements TrainCar {
 
-	public StorageTrainCar() {
-		
-	}
-	
 	@Override
-	public void place(NewJFrame frame) {
-            // TODO Auto-generated method stub
-            ImageIcon iconcar = new ImageIcon(getClass().getResource("/Images/StorageTrainCar.png"));
-            Image imgcar = iconcar.getImage();
-            Image scaledimgcar = imgcar.getScaledInstance(frame.getTrainCar().getWidth(), frame.getTrainCar().getHeight(), Image.SCALE_SMOOTH);
-        
-            ImageIcon scalediconcar = new ImageIcon(scaledimgcar);
-            frame.getTrainCar().setIcon(scalediconcar);
+	public void place(MainJFrame frame) {
+        Image img = new ImageIcon(getClass().getResource("/Images/StorageTrainCar.png")).getImage();
+        Image scaledImg = img.getScaledInstance(frame.getTrainCar().getWidth(), frame.getTrainCar().getHeight(),
+                Image.SCALE_SMOOTH);
+
+        frame.getTrainCar().setIcon(new ImageIcon(scaledImg));
 	}
 
 }
