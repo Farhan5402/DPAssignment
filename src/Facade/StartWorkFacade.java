@@ -1,25 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Facade;
 
 import Main.NewJFrame;
 
-/**
- *
- * @author farha
- */
 public class StartWorkFacade {
     
     private StageLightsR slr;
     private StageLightsL sll;
     private Toolbox tb;
     
-    public StartWorkFacade(NewJFrame frame){
-        this.sll = new StageLightsL(frame);
-        this.slr = new StageLightsR(frame);
-        this.tb = new Toolbox(frame);
+    public StartWorkFacade(StageLightsL sll, StageLightsR slr, Toolbox tb){
+        this.sll = sll;
+        this.slr = slr;
+        this.tb = tb;
     }
     
     public void TurnOn(NewJFrame frame){

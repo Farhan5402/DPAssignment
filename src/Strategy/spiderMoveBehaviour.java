@@ -8,19 +8,18 @@ public class SpiderMoveBehaviour implements MoveBehaviour{
 
     @Override
     public void move(NewJFrame frame) {
-        ImageIcon iconcar = new ImageIcon(getClass().getResource("/Images/Spider.png"));
-        Image imgcar = iconcar.getImage();
-        Image scaledimgcar = imgcar.getScaledInstance(frame.getWheel1().getWidth(), frame.getWheel1().getHeight(), Image.SCALE_SMOOTH);
-        frame.getWheel1().setLocation(frame.getWheel1().getX(), 320);
-        ImageIcon scalediconcar = new ImageIcon(scaledimgcar);
-        frame.getWheel1().setIcon(scalediconcar);
+        Image img = new ImageIcon(getClass().getResource("/Images/Spider.png")).getImage();
+
+        Image scaledImg1 = img.getScaledInstance(frame.getWheel1().getWidth(), frame.getWheel1().getHeight(),
+                Image.SCALE_SMOOTH);
+        Image scaledImg2 = img.getScaledInstance(frame.getWheel2().getWidth(), frame.getWheel2().getHeight(),
+                Image.SCALE_SMOOTH);
+
+        frame.getWheel1().setLocation(frame.getWheel1().getX(), 300);
+        frame.getWheel2().setLocation(frame.getWheel2().getX(), 300);
         
-        ImageIcon iconcar2 = new ImageIcon(getClass().getResource("/Images/Spider.png"));
-        Image imgcar2 = iconcar2.getImage();
-        Image scaledimgcar2 = imgcar.getScaledInstance(frame.getWheel2().getWidth(), frame.getWheel2().getHeight(), Image.SCALE_SMOOTH);
-        frame.getWheel2().setLocation(frame.getWheel2().getX(), 320);
-        ImageIcon scalediconcar2 = new ImageIcon(scaledimgcar);
-        frame.getWheel2().setIcon(scalediconcar);
+        frame.getWheel1().setIcon(new ImageIcon(scaledImg1));
+        frame.getWheel2().setIcon(new ImageIcon(scaledImg2));
     }
 
 }

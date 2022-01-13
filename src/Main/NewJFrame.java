@@ -1,6 +1,5 @@
 package Main;
 
-import AbstractFactory.AbstractFeatureFactory;
 import AbstractFactory.PassengerFactory;
 import AbstractFactory.StorageFactory;
 import Command.*;
@@ -17,10 +16,10 @@ public class NewJFrame extends javax.swing.JFrame {
 
     static NewJFrame frame;
 
-    public static Vehicle vehicle;
-    public static StageLightsL stageLightL;
-    public static StageLightsR stageLightR;
-    public static StartWorkFacade startWorkFacade;
+    private static Vehicle vehicle;
+    private static StageLightsL stageLightL;
+    private static StageLightsR stageLightR;
+    private static StartWorkFacade startWorkFacade;
 
     private ArrayList<Command> _commandHistory = new ArrayList<>();
 
@@ -219,35 +218,36 @@ public class NewJFrame extends javax.swing.JFrame {
         _commandHistory.add(cmd);
     }
 
+    private void undoPreviousCommanad() {
+
+    }
+
     private void PassengerBtnActionPerformed(java.awt.event.ActionEvent evt) {
-        performCommand(new AddFeatureCommand(vehicle, new PassengerFactory(frame)));        
+        performCommand(new AddFeatureCommand(vehicle, frame, new PassengerFactory()));
     }
 
     private void StorageBtnActionPerformed(java.awt.event.ActionEvent evt) {
-        performCommand(new AddFeatureCommand(vehicle, new StorageFactory(frame)));        
+        performCommand(new AddFeatureCommand(vehicle, frame, new StorageFactory()));
     }
 
     private void SpiderBtnActionPerformed(java.awt.event.ActionEvent evt) {
-        performCommand(new AddMoveCommand(vehicle, new SpiderMoveBehaviour()));
-
-        // TODO: Needs to be moved into command itself. So that undo works
-        vehicle.performMoveBehaviour(frame);
+        performCommand(new AddMoveCommand(vehicle, frame, new SpiderMoveBehaviour()));
     }
 
     private void TrackBtnActionPerformed(java.awt.event.ActionEvent evt) {
-        performCommand(new AddMoveCommand(vehicle, new TrackMoveBehaviour()));
+        performCommand(new AddMoveCommand(vehicle, frame, new TrackMoveBehaviour()));
     }
 
     private void PoliceBtnActionPerformed(java.awt.event.ActionEvent evt) {
-        performCommand(new AddLightCommand(vehicle, new PoliceBehaviour()));
+        performCommand(new AddLightCommand(vehicle, frame, new PoliceLightBehaviour()));
     }
 
     private void AmbulanceBtnActionPerformed(java.awt.event.ActionEvent evt) {
-        performCommand(new AddLightCommand(vehicle, new AmbulanceBehaviour()));
+        performCommand(new AddLightCommand(vehicle, frame, new AmbulanceLightBehaviour()));
     }
 
     private void TaxiBtn1ActionPerformed(java.awt.event.ActionEvent evt) {
-        performCommand(new AddLightCommand(vehicle, new TaxiBehaviour()));
+        performCommand(new AddLightCommand(vehicle, frame, new TaxiLightBehaviour()));
     }
 
     private void StartWorkActionPerformed(java.awt.event.ActionEvent evt) {
@@ -285,10 +285,8 @@ public class NewJFrame extends javax.swing.JFrame {
             public void run() {
                 frame = new NewJFrame();
                 frame.setVisible(true);
-                vehicle = new Vehicle() {
-                };
-                startWorkFacade = new StartWorkFacade(frame);
-
+                vehicle = new Vehicle();
+                startWorkFacade = new StartWorkFacade(new StageLightsL(frame), new StageLightsR(frame), new Toolbox(frame));
             }
         });
     }
