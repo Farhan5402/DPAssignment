@@ -395,6 +395,10 @@ public class MainJFrame extends javax.swing.JFrame {
         this.Toolbox = Toolbox;
     }
 
+    <<<<<<<HEAD:src/Main/MainJFrame.java=======
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    >>>>>>>main:src/Main/NewJFrame.java
+
     private javax.swing.JButton AmbulanceBtn;
     private javax.swing.JLabel Background;
     private javax.swing.JLabel Chassis;
