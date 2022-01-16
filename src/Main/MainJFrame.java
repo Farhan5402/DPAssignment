@@ -26,6 +26,13 @@ public class MainJFrame extends javax.swing.JFrame {
     public MainJFrame() {
         initComponents();
         setBackground();
+        PassengerBtn.setEnabled(false);
+        StorageBtn.setEnabled(false);
+        SpiderBtn.setEnabled(false);
+        TrackBtn.setEnabled(false);
+        PoliceBtn.setEnabled(false);
+        AmbulanceBtn.setEnabled(false);
+        TaxiBtn1.setEnabled(false);
     }
 
     public void setBackground() {
@@ -238,10 +245,25 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void StartWorkActionPerformed(java.awt.event.ActionEvent evt) {
         startWorkFacade.TurnOn(frame);
+        PassengerBtn.setEnabled(true);
+        StorageBtn.setEnabled(true);
+        SpiderBtn.setEnabled(true);
+        TrackBtn.setEnabled(true);
+        PoliceBtn.setEnabled(true);
+        AmbulanceBtn.setEnabled(true);
+        TaxiBtn1.setEnabled(true);
     }
 
     private void StopWorkActionPerformed(java.awt.event.ActionEvent evt) {
         startWorkFacade.TurnOff(frame);
+        PassengerBtn.setEnabled(false);
+        StorageBtn.setEnabled(false);
+        SpiderBtn.setEnabled(false);
+        TrackBtn.setEnabled(false);
+        PoliceBtn.setEnabled(false);
+        AmbulanceBtn.setEnabled(false);
+        TaxiBtn1.setEnabled(false);
+        
     }
 
     // #endregion
