@@ -17,16 +17,16 @@ public class AddMoveCommand extends Command {
 
     @Override
     public void execute() {
-        prevMoveBehaviour = vehicle.moveBehaviour;
+        prevMoveBehaviour = vehicle.getMoveBehaviour();
 
-        vehicle.moveBehaviour = moveBehaviour;
-        vehicle.moveBehaviour.move(frame);
+        vehicle.setMoveBehaviour(moveBehaviour);
+        vehicle.performMoveBehaviour(frame);
     }
 
     @Override
     public void undo() {
-        vehicle.moveBehaviour = prevMoveBehaviour;
-        vehicle.moveBehaviour.move(frame);
+        vehicle.setMoveBehaviour(prevMoveBehaviour);
+        vehicle.performMoveBehaviour(frame);
     }
 
 }

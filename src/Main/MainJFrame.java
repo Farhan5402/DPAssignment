@@ -76,9 +76,9 @@ public class MainJFrame extends javax.swing.JFrame {
         jPanel1.add(Lights);
         Lights.setBounds(535, 205, 90, 20);
         jPanel1.add(Wheel1);
-        Wheel1.setBounds(470, 320, 140, 140);
+        Wheel1.setBounds(450, 320, 140, 140);
         jPanel1.add(Wheel2);
-        Wheel2.setBounds(210, 320, 140, 140);
+        Wheel2.setBounds(195, 320, 140, 140);
         jPanel1.add(Chassis);
         Chassis.setBounds(410, 200, 260, 210);
         Chassis.getAccessibleContext().setAccessibleName("Chassis");
@@ -394,10 +394,6 @@ public class MainJFrame extends javax.swing.JFrame {
     public void setToolbox(JLabel Toolbox) {
         this.Toolbox = Toolbox;
     }
-
-    <<<<<<<HEAD:src/Main/MainJFrame.java=======
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    >>>>>>>main:src/Main/NewJFrame.java
 
     private javax.swing.JButton AmbulanceBtn;
     private javax.swing.JLabel Background;

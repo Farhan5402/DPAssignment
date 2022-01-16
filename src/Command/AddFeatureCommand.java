@@ -23,23 +23,23 @@ public class AddFeatureCommand extends Command {
 
     @Override
     public void execute() {
-        prevChassis = vehicle.chassis;
-        prevTrainCar = vehicle.trainCar;
+        prevChassis = vehicle.getChassis();
+        prevTrainCar = vehicle.getTrainCar();
 
-        vehicle.chassis = chassis;
-        vehicle.trainCar = trainCar;
+        vehicle.setChassis(chassis);
+        vehicle.setTrainCar(trainCar);
 
-        vehicle.chassis.place(frame);
-        vehicle.trainCar.place(frame);
+        vehicle.getChassis().place(frame);
+        vehicle.getTrainCar().place(frame);
     }
 
     @Override
     public void undo() {
-        vehicle.chassis = prevChassis;
-        vehicle.trainCar = prevTrainCar;
+        vehicle.setChassis(prevChassis);
+        vehicle.setTrainCar(prevTrainCar);
 
-        vehicle.chassis.place(frame);
-        vehicle.trainCar.place(frame);
+        vehicle.getChassis().place(frame);
+        vehicle.getTrainCar().place(frame);
     }
 
 }

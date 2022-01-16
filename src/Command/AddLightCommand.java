@@ -17,16 +17,16 @@ public class AddLightCommand extends Command {
 
     @Override
     public void execute() {
-        prevLightBehaviour = vehicle.lightBehaviour;
+        prevLightBehaviour = vehicle.getLightBehaviour();
 
-        vehicle.lightBehaviour = lightBehaviour;
-        vehicle.lightBehaviour.lightUp(frame);
+        vehicle.setLightBehaviour(lightBehaviour);
+        vehicle.performLightBehaviour(frame);
     }
 
     @Override
     public void undo() {
-        vehicle.lightBehaviour = prevLightBehaviour;
-        vehicle.lightBehaviour.lightUp(frame);
+        vehicle.setLightBehaviour(prevLightBehaviour);
+        vehicle.performLightBehaviour(frame);
     }
 
 }
