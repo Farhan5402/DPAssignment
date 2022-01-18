@@ -18,12 +18,26 @@ public class StartWorkFacade {
         sll.lightUp(frame);
         slr.lightUp(frame);
         tb.open(frame);
+        frame.getPassenger().setEnabled(true);
+        frame.getStorage().setEnabled(true);
+        frame.getSpider().setEnabled(true);
+        frame.getTrack().setEnabled(true);
+        frame.getPolice().setEnabled(true);
+        frame.getAmbulance().setEnabled(true);
+        frame.getTaxi().setEnabled(true);
     }
     
     public void TurnOff(MainJFrame frame){
         sll.lightDown(frame);
         slr.lightDown(frame);
         tb.close(frame);
+        frame.getPassenger().setEnabled(false);
+        frame.getStorage().setEnabled(false);
+        frame.getSpider().setEnabled(false);
+        frame.getTrack().setEnabled(false);
+        frame.getPolice().setEnabled(false);
+        frame.getAmbulance().setEnabled(false);
+        frame.getTaxi().setEnabled(false);
     }
     
 }
