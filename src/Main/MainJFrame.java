@@ -103,7 +103,7 @@ public class MainJFrame extends javax.swing.JFrame {
         jPanel1.add(Wheel1);
         Wheel1.setBounds(470, 320, 140, 140);
         jPanel1.add(Wheel2);
-        Wheel2.setBounds(210, 320, 140, 140);
+        Wheel2.setBounds(195, 320, 140, 140);
         jPanel1.add(Chassis);
         Chassis.setBounds(410, 200, 260, 210);
         Chassis.getAccessibleContext().setAccessibleName("Chassis");
