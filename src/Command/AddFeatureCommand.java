@@ -38,8 +38,13 @@ public class AddFeatureCommand extends Command {
         vehicle.setChassis(prevChassis);
         vehicle.setTrainCar(prevTrainCar);
 
-        vehicle.getChassis().place(frame);
-        vehicle.getTrainCar().place(frame);
+        if (prevChassis == null || prevTrainCar == null) {
+            frame.getChassis().setIcon(null);
+            frame.getTrainCar().setIcon(null);
+        } else {
+            vehicle.getChassis().place(frame);
+            vehicle.getTrainCar().place(frame);
+        }
     }
 
 }

@@ -26,7 +26,13 @@ public class AddLightCommand extends Command {
     @Override
     public void undo() {
         vehicle.setLightBehaviour(prevLightBehaviour);
-        vehicle.performLightBehaviour(frame);
+
+        // If previous light behaviour is null just remove image
+        if (prevLightBehaviour == null) {
+            frame.getLights().setIcon(null);
+        } else {
+            vehicle.performLightBehaviour(frame);
+        }
     }
 
 }
