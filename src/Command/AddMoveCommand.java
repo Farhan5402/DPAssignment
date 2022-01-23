@@ -26,7 +26,14 @@ public class AddMoveCommand extends Command {
     @Override
     public void undo() {
         vehicle.setMoveBehaviour(prevMoveBehaviour);
-        vehicle.performMoveBehaviour(frame);
+
+        // If previous move behaviour is null just remove image
+        if (prevMoveBehaviour == null) {
+            frame.getWheel1().setIcon(null);
+            frame.getWheel2().setIcon(null);
+        } else {
+            vehicle.performMoveBehaviour(frame);
+        }
     }
 
 }

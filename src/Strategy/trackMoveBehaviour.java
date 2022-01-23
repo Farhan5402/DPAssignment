@@ -17,7 +17,7 @@ public class TrackMoveBehaviour implements MoveBehaviour {
 
         frame.getWheel1().setLocation(frame.getWheel1().getX(), 300);
         frame.getWheel2().setLocation(frame.getWheel2().getX(), 300);
-        
+
         frame.getWheel1().setIcon(new ImageIcon(scaledImg1));
         frame.getWheel2().setIcon(new ImageIcon(scaledImg2));
     }

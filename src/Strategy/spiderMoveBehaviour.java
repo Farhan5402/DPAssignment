@@ -4,7 +4,7 @@ import Main.MainJFrame;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
-public class SpiderMoveBehaviour implements MoveBehaviour{
+public class SpiderMoveBehaviour implements MoveBehaviour {
 
     @Override
     public void move(MainJFrame frame) {
@@ -17,7 +17,7 @@ public class SpiderMoveBehaviour implements MoveBehaviour{
 
         frame.getWheel1().setLocation(frame.getWheel1().getX(), 300);
         frame.getWheel2().setLocation(frame.getWheel2().getX(), 300);
-        
+
         frame.getWheel1().setIcon(new ImageIcon(scaledImg1));
         frame.getWheel2().setIcon(new ImageIcon(scaledImg2));
     }
