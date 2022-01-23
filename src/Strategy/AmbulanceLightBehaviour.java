@@ -10,8 +10,8 @@ public class AmbulanceLightBehaviour implements LightBehaviour {
       public void lightUp(MainJFrame frame) {
             Image img = new ImageIcon(getClass().getResource("/Images/Ambulance.png")).getImage();
             Image scaledImg = img.getScaledInstance(frame.getLights().getWidth(), frame.getLights().getHeight(),
-                        Image.SCALE_SMOOTH);
-
+                    Image.SCALE_SMOOTH);
+    
             frame.getLights().setIcon(new ImageIcon(scaledImg));
       }
 
